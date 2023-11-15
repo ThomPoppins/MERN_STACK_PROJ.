@@ -274,7 +274,7 @@ const RegisterUser = () => {
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 usernameError ? 'border-red-500' : ''
               }`}
-              data-test-id='user-username-input'
+              data-testid='user-username-input'
               id='user-username-input'
               onBlur={validateUsername}
               onChange={handleUsernameChange}
@@ -297,7 +297,7 @@ const RegisterUser = () => {
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 emailError ? 'border-red-500' : ''
               }`}
-              data-test-id='user-email-input'
+              data-testid='user-email-input'
               id='user-email-input'
               onBlur={validateEmail}
               onChange={handleEmailChange}
@@ -320,7 +320,7 @@ const RegisterUser = () => {
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 passwordError ? 'border-red-500' : ''
               }`}
-              data-test-id='user-password-input'
+              data-testid='user-password-input'
               id='user-password-input'
               onBlur={validatePassword}
               onChange={handlePasswordChange}
@@ -348,7 +348,7 @@ const RegisterUser = () => {
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 confirmPasswordError ? 'border-red-500' : ''
               }`}
-              data-test-id='user-confirm-password-input'
+              data-testid='user-confirm-password-input'
               id='user-confirm-password-input'
               onBlur={validateConfirmPassword}
               onChange={handleConfirmPasswordChange}
@@ -371,7 +371,7 @@ const RegisterUser = () => {
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 firstNameError ? 'border-red-500' : ''
               }`}
-              data-test-id='user-first-name-input'
+              data-testid='user-first-name-input'
               id='user-first-name-input'
               onBlur={validateFirstName}
               onChange={handleFirstNameChange}
@@ -395,7 +395,7 @@ const RegisterUser = () => {
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 lastNameError ? 'border-red-500' : ''
               }`}
-              data-test-id='user-last-name-input'
+              data-testid='user-last-name-input'
               id='user-last-name-input'
               onBlur={validateLastName}
               onChange={handleLastNameChange}
@@ -418,7 +418,7 @@ const RegisterUser = () => {
             <br />
             <div className='flex flex-row justify-center space-x-16'>
               <input
-                data-test-id='user-gender-input-male'
+                data-testid='user-gender-input-male'
                 id='user-gender-input-male'
                 name='gender'
                 onChange={handleGenderChange}
@@ -427,7 +427,7 @@ const RegisterUser = () => {
               />{' '}
               Man
               <input
-                data-test-id='user-gender-input-female'
+                data-testid='user-gender-input-female'
                 name='gender'
                 onChange={handleGenderChange}
                 type='radio'
@@ -435,7 +435,7 @@ const RegisterUser = () => {
               />{' '}
               Woman
               <input
-                data-test-id='user-gender-input-other'
+                data-testid='user-gender-input-other'
                 name='gender'
                 onChange={handleGenderChange}
                 type='radio'
@@ -454,7 +454,7 @@ const RegisterUser = () => {
           </div>
           <button
             className='bg-gradient-to-r from-violet-600 to-purple-600 hover:bg-purple-700 hover:bg-gradient-to-l rounded-lg p-2 m-8'
-            data-test-id='user-register-button'
+            data-testid='user-register-button'
             onClick={handleSaveUser}
             type='button'
           >

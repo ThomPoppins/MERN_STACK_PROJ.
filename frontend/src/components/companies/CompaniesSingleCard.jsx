@@ -77,7 +77,7 @@ const CompaniesSingleCard = ({ company, updateCompanies }) => {
       <div className='flex justify-between items-center gap-x-2 mt-4 p-4'>
         <BiShow
           className='text-3xl text-white hover:text-green-300 cursor-pointer'
-          data-test-id='show-button'
+          data-testid='show-button'
           onClick={() => setShowModal(true)}
         />
         <Link to={`/companies/details/${company._id}`}>
@@ -88,7 +88,7 @@ const CompaniesSingleCard = ({ company, updateCompanies }) => {
         </Link>
         <MdOutlineDelete
           className='text-red-600 text-2xl hover:text-orange-600'
-          data-test-id='delete-button'
+          data-testid='delete-button'
           onClick={() => setShowDeleteModal(true)}
         />
       </div>

@@ -1,4 +1,4 @@
-### GitHub Copilot: Om Redux te implementeren in een React-applicatie voor state management, moet je de volgende stappen volgen:
+### GitHub Copilot: Om Redux te implementeren in een React-applicatie voor state management, moet je de volgende stappen volgen
 
 1. Installeer de vereiste pakketten:
 
@@ -71,7 +71,7 @@
      return (
        <div>
          <p>Count: {props.count}</p>
-         <button onClick={props.increment} data-test-id="">
+         <button onClick={props.increment} data-testid="">
            Increment
          </button>
          <button onClick={props.decrement}>Decrement</button>
@@ -99,7 +99,7 @@
 
 Door deze stappen te volgen, kun je Redux implementeren in een React-applicatie voor state management.
 
-### GitHub Copilot: Natuurlijk! Hier is een voorbeeld van hoe je de bestanden kunt structureren om Redux te implementeren in een React-applicatie:
+### GitHub Copilot: Natuurlijk! Hier is een voorbeeld van hoe je de bestanden kunt structureren om Redux te implementeren in een React-applicatie
 
 ```
 src/
