@@ -66,11 +66,6 @@ const UserSearch = ({
 
     setSearchTerm(event.target.value)
     searchUsers(event.target.value)
-
-    console.log(
-      'handleSearch e.target.value in UserSearch.jsx: ',
-      event.target.value,
-    )
   }
 
   return (
@@ -218,6 +213,11 @@ UserSearch.propTypes = {
         phone: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
         kvkNumber: PropTypes.string.isRequired,
+        owners: PropTypes.arrayOf(
+          PropTypes.shape({
+            userId: PropTypes.string.isRequired,
+          }),
+        ).isRequired,
         startYear: PropTypes.number.isRequired,
         createdAt: PropTypes.string.isRequired,
         updatedAt: PropTypes.string.isRequired,

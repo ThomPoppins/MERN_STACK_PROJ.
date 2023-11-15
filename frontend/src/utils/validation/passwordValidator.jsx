@@ -5,22 +5,22 @@ const passwordValidator = (password) => {
   }
 
   // Password must contain at least one uppercase letter
-  if (!/[A-Z]/.test(password)) {
+  if (!/[A-Z]/u.test(password)) {
     return false
   }
 
   // Password must contain at least one lowercase letter
-  if (!/[a-z]/.test(password)) {
+  if (!/[a-z]/u.test(password)) {
     return false
   }
 
   // Password must contain at least one digit
-  if (!/\d/.test(password)) {
+  if (!/\d/u.test(password)) {
     return false
   }
 
   // Password must contain at least one special character
-  if (!/[^A-Za-z0-9]/.test(password)) {
+  if (!/[^A-Za-z0-9]/u.test(password)) {
     return false
   }
 

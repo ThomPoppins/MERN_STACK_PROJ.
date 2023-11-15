@@ -26,8 +26,8 @@ const LoginUser = () => {
   }
 
   // Handle onChange events for input fields
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value)
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value)
     if (emailError) {
       validateEmail()
     }
@@ -62,7 +62,6 @@ const LoginUser = () => {
         setLoading(false)
         // Save the JWT token in a cookie
         const { token } = response.data
-        console.log(`JWT token in LoginUser.jsx: ${token}`)
         // Cookie expires one day before the JWT token expires this is to avoid
         // the case where the JWT token expires before the cookie and the user is
         // logged out before the cookie expires.
@@ -100,12 +99,15 @@ const LoginUser = () => {
         {loading ? <Loader /> : ''}
         <div className='flex flex-col border-2 border-purple-900 bg-violet-950/40 rounded-xl w-[600px] py-4 px-8 mx-auto'>
           <div className='my-4'>
-            <label className='text-xl mr-4'>Email</label>
+            <label className='text-xl mr-4' htmlFor='user-email-input'>
+              Email
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 emailError ? 'border-red-500' : ''
               }`}
               data-test-id='user-email-input'
+              id='user-email-input'
               onBlur={validateEmail}
               onChange={handleEmailChange}
               type='text'
@@ -120,13 +122,18 @@ const LoginUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4'>Password</label>
+            <label className='text-xl mr-4' htmlFor='user-password-inpu'>
+              Password
+            </label>
             <input
               className='border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full'
               data-test-id='user-password-input'
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => {
-                e.key === 'Enter' && handleLoginUser()
+              id='user-password-input'
+              onChange={(event) => setPassword(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  handleLoginUser()
+                }
               }}
               type='password'
               value={password}
@@ -136,6 +143,7 @@ const LoginUser = () => {
             className='bg-gradient-to-r from-violet-600 to-purple-600 hover:bg-purple-700 hover:bg-gradient-to-l rounded-lg p-2 m-8'
             data-test-id='user-login-button'
             onClick={handleLoginUser}
+            type='button'
           >
             Login
           </button>

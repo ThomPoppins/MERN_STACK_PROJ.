@@ -1,6 +1,6 @@
-function startYearValidator(startYear) {
+const startYearValidator = (startYear) => {
   const currentYear = new Date().getFullYear()
-  const startYearInt = parseInt(startYear)
+  const startYearInt = parseInt(startYear, 10)
 
   if (isNaN(startYearInt)) {
     return false

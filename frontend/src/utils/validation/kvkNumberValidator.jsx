@@ -2,7 +2,7 @@ import axios from 'axios'
 import { BACKEND_URL, TEST_KVK_API } from '../../../config.js'
 
 const kvkNumberValidator = async (kvkNumber) => {
-  const regex = /^[0-9]{8}$/
+  const regex = /^[0-9]{8}$/u
   const validNumberFormat = regex.test(kvkNumber)
   let apiCallValidated = false
 
@@ -15,14 +15,13 @@ const kvkNumberValidator = async (kvkNumber) => {
 
   // TODO: Remove this line when API call is implemented
   await axios
-    .get(`${BACKEND_URL  }/kvk`, {
+    .get(`${BACKEND_URL}/kvk`, {
       params: {
         kvkNumber,
       },
     })
     .then((response) => {
       if (response.status === 200) {
-        console.log('kvkNumberValidator Axios response: ', response)
         apiCallValidated = true
       }
     })

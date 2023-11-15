@@ -16,7 +16,7 @@ const CompaniesList = () => {
   const dispatch = useDispatch(),
     // current state as an argument and returns whatever data you want from it.
     showType = useSelector((state) => state.companiesListShowType),
-    // edux store state
+    // Redux store state
     userId = useSelector((state) => state.userId),
     // companies is an array of objects
     [companies, setCompanies] = useState([]),
@@ -26,7 +26,7 @@ const CompaniesList = () => {
     updateCompanies = () => {
       setLoading(true)
       axios
-        .get(`${BACKEND_URL  }/companies/owned-companies/${  userId}`)
+        .get(`${BACKEND_URL}/companies/owned-companies/${userId}`)
         .then((response) => {
           setCompanies(response.data.data)
           setLoading(false)
@@ -43,10 +43,10 @@ const CompaniesList = () => {
           setLoading(false)
         })
     },
-    handleShowTypeChange = (showType) => {
+    handleShowTypeChange = (companiesShowType) => {
       // dispatch() is a function of the Redux store. You call store.dispatch to dispatch an action.
       // The object passed to the dispatch() function is called action.
-      dispatch({ type: COMPANIES_LIST_SHOW_TYPE, payload: showType })
+      dispatch({ type: COMPANIES_LIST_SHOW_TYPE, payload: companiesShowType })
     }
 
   useEffect(() => {
@@ -62,6 +62,7 @@ const CompaniesList = () => {
             className='bg-gradient-to-r from-violet-600 to-purple-600 hover:bg-gradient-to-l px-4 py-1 rounded-lg'
             data-test-id='show-card-button'
             onClick={() => handleShowTypeChange('card')}
+            type='button'
           >
             Card
           </button>
@@ -69,6 +70,7 @@ const CompaniesList = () => {
             className='bg-gradient-to-r from-violet-600 to-purple-600 hover:bg-purple-700 hover:bg-gradient-to-l px-4 py-1 rounded-lg'
             data-test-id='show-table-button'
             onClick={() => handleShowTypeChange('table')}
+            type='button'
           >
             Table
           </button>

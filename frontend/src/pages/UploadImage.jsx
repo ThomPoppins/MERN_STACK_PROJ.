@@ -27,18 +27,12 @@ const UploadImage = () => {
         },
       })
       .then((response) => {
-        console.log('RESPONSE from /upload/image route: ', response)
-        console.log('response.data: ', response.data)
-
         if (response.data.imageId) {
           // Save the image id of the profile picture to the user's document in the database
           axios
             .put(`${BACKEND_URL}/users/profile-picture`, {
               userId,
               imageId: response.data.imageId,
-            })
-            .then((response) => {
-              console.log('RESPONSE from /users/profile-picture: ', response)
             })
             .catch((error) => {
               console.log('ERROR from /users/profile-picture: ', error)

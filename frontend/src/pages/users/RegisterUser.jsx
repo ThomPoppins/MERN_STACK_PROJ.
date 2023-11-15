@@ -228,7 +228,7 @@ const RegisterUser = () => {
 
     // Send a POST request to the backend to save the user to the database
     axios
-      .post(`${BACKEND_URL  }/users`, data)
+      .post(`${BACKEND_URL}/users`, data)
       .then(() => {
         // Hide the spinner
         setLoading(false)
@@ -267,12 +267,15 @@ const RegisterUser = () => {
             ''
           )}
           <div className='my-4'>
-            <label className='text-xl mr-4'>Username</label>
+            <label className='text-xl mr-4' htmlFor='user-username-input'>
+              Username
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 usernameError ? 'border-red-500' : ''
               }`}
               data-test-id='user-username-input'
+              id='user-username-input'
               onBlur={validateUsername}
               onChange={handleUsernameChange}
               type='text'
@@ -287,12 +290,15 @@ const RegisterUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4'>Email</label>
+            <label className='text-xl mr-4' htmlFor='user-email-input'>
+              Email
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 emailError ? 'border-red-500' : ''
               }`}
               data-test-id='user-email-input'
+              id='user-email-input'
               onBlur={validateEmail}
               onChange={handleEmailChange}
               type='text'
@@ -307,12 +313,15 @@ const RegisterUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4'>Password</label>
+            <label className='text-xl mr-4' htmlFor='user-password-input'>
+              Password
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 passwordError ? 'border-red-500' : ''
               }`}
               data-test-id='user-password-input'
+              id='user-password-input'
               onBlur={validatePassword}
               onChange={handlePasswordChange}
               type='password'
@@ -329,12 +338,18 @@ const RegisterUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4'>Confirm Password</label>
+            <label
+              className='text-xl mr-4'
+              htmlFor='user-confirm-password-input'
+            >
+              Confirm Password
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 confirmPasswordError ? 'border-red-500' : ''
               }`}
               data-test-id='user-confirm-password-input'
+              id='user-confirm-password-input'
               onBlur={validateConfirmPassword}
               onChange={handleConfirmPasswordChange}
               type='password'
@@ -349,12 +364,15 @@ const RegisterUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4'>First Name</label>
+            <label className='text-xl mr-4' htmlFor='user-first-name-input'>
+              First Name
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 firstNameError ? 'border-red-500' : ''
               }`}
               data-test-id='user-first-name-input'
+              id='user-first-name-input'
               onBlur={validateFirstName}
               onChange={handleFirstNameChange}
               type='text'
@@ -370,12 +388,15 @@ const RegisterUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4 '>Last Name</label>
+            <label className='text-xl mr-4 ' htmlFor='user-last-name-input'>
+              Last Name
+            </label>
             <input
               className={`border-2 border-purple-900 bg-cyan-100 focus:bg-white rounded-xl text-gray-800 px-4 py-2 w-full ${
                 lastNameError ? 'border-red-500' : ''
               }`}
               data-test-id='user-last-name-input'
+              id='user-last-name-input'
               onBlur={validateLastName}
               onChange={handleLastNameChange}
               type='text'
@@ -391,10 +412,14 @@ const RegisterUser = () => {
             )}
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4'>Gender</label> <br />
+            <label className='text-xl mr-4' htmlFor='user-gender-input-male'>
+              Gender
+            </label>{' '}
+            <br />
             <div className='flex flex-row justify-center space-x-16'>
               <input
                 data-test-id='user-gender-input-male'
+                id='user-gender-input-male'
                 name='gender'
                 onChange={handleGenderChange}
                 type='radio'
@@ -431,6 +456,7 @@ const RegisterUser = () => {
             className='bg-gradient-to-r from-violet-600 to-purple-600 hover:bg-purple-700 hover:bg-gradient-to-l rounded-lg p-2 m-8'
             data-test-id='user-register-button'
             onClick={handleSaveUser}
+            type='button'
           >
             Save
           </button>

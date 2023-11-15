@@ -29,12 +29,6 @@ export const getPendingRecievedInvites = (userId) => {
 
   Promise.resolve(updateRecievedPendingInvitesPromise)
     .then((invites) => {
-      // ! TODO: Remove console.log
-      console.log(
-        'InvitesList.jsx getPendingRecievedInvites invites: ',
-        invites,
-      )
-
       // Update the pending receiver invites Redux state
       store.dispatch({
         type: PENDING_RECIEVED_INVITES,

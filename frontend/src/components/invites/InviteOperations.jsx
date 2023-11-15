@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
-import { use } from 'chai'
-import { useSelector } from 'react-redux'
 import { BACKEND_URL } from '../../../config'
 
 const InviteOperations = ({ invite, updateInviteStatus }) => {
   // Spin accept button (after click Find)
   const [acceptButtonSpinning, setAcceptButtonSpinning] = useState(false)
   const [declineButtonPing, setDeclineButtonPing] = useState(false)
-
-  //
-  const user = useSelector((state) => state.user)
-  //
-  const userId = useSelector((state) => state.userId)
 
   const handleAcceptInvite = async () => {
     setAcceptButtonSpinning(true)
@@ -22,9 +16,7 @@ const InviteOperations = ({ invite, updateInviteStatus }) => {
       .put(
         `${BACKEND_URL}/companies/${invite.companyId}/add-owner/${invite.receiverId}`,
       )
-      .then((response) => {
-        console.log('Added user to company: ', response)
-
+      .then(() => {
         // Update the invite status to "accepted"
         updateInviteStatus(invite._id, 'accepted')
       })
@@ -38,13 +30,11 @@ const InviteOperations = ({ invite, updateInviteStatus }) => {
     // Timeout for stopping the animation after 2 seconds
     setTimeout(() => {
       setAcceptButtonSpinning(false)
-
-      console.log('Accepted invite: ', invite._id)
     }, 2000)
   }
 
   return (
-    <div id={`operations-${  invite._id}`} key={invite._id}>
+    <div id={`operations-${invite._id}`} key={invite._id}>
       <span className='text-xl'>
         <button
           className={`bg-gradient-to-r from-green-600 to-green-700 hover:from-green-400 hover:to-green-500 rounded-lg w-[82px] float-left ml-1 ${
@@ -54,6 +44,7 @@ const InviteOperations = ({ invite, updateInviteStatus }) => {
           }`}
           data-test-id='accept-button'
           onClick={handleAcceptInvite}
+          type='button'
         >
           Accept
         </button>
@@ -70,6 +61,7 @@ const InviteOperations = ({ invite, updateInviteStatus }) => {
                 setDeclineButtonPing(false)
               }, 1000)
             }}
+            type='button'
           >
             Decline
           </button>
@@ -77,6 +69,35 @@ const InviteOperations = ({ invite, updateInviteStatus }) => {
       </span>
     </div>
   )
+}
+
+InviteOperations.propTypes = {
+  invite: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    companyId: PropTypes.string.isRequired,
+    receiverId: PropTypes.string.isRequired,
+    receiver: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      password: PropTypes.string.isRequired,
+      __v: PropTypes.number.isRequired,
+    }).isRequired,
+    senderId: PropTypes.string.isRequired,
+    sender: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      password: PropTypes.string.isRequired,
+      __v: PropTypes.number.isRequired,
+    }).isRequired,
+    status: PropTypes.string.isRequired,
+  }).isRequired,
+  updateInviteStatus: PropTypes.func.isRequired,
 }
 
 export default InviteOperations

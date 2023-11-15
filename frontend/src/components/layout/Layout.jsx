@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar'
-import { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { getPendingRecievedInvites } from '../../utils/invites/recievedInvitesUpdater'
 import { useSelector } from 'react-redux'
 
@@ -29,6 +29,10 @@ const Layout = ({ children }) => {
       </div>
     </div>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout
